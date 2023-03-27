@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows;
+using System.Windows.Forms;
 
 
 namespace HW_Tamagochi
 {
     internal class GetWinForm
     {
-            public static System.Windows.Forms.DialogResult Show(string text);
+        public static System.Windows.Forms.DialogResult Show(string text) 
+        {
+        return DialogResult.OK;
+        }
         private void DisplayMessageBoxText()
         {
             MessageBox.Show("Hello, world.");
         }
-        private void button1_Click()
+        private static void button1_Click()
         {
-            System.Forms.MessageBox.Show(
+            MessageBox.Show(
                 "Выберите один из вариантов",
                 "Сообщение",
                 MessageBoxButtons.YesNo,
