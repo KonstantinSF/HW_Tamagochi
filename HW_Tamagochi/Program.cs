@@ -1,52 +1,58 @@
-﻿using HW_Tamagochi;
+﻿using System;
 using System.Threading;
-namespace System.Windows.Forms
+using System.Windows.Forms;
+using static System.Console;
+
+
+
+namespace HW_Tamagochi
 {
-
-
-    namespace HW_Tamagochi
+    internal class Program
     {
-        internal class Program
+
+
+        //static void Main(string[] args)
+
+        //TamagochiPicture.ShowPic();
+        //public class ThreadExample
+
+        // The ThreadProc method is called when the thread starts.
+        // It loops ten times, writing to the console and yielding
+        // the rest of its time slice each time, and then ends.
+
+        bool _gameon = true;
+
+        
+        public static void Main(string[] args)
         {
+            Thread showPic = new Thread(new ThreadStart(TamagochiPicture.ShowPic));
+            showPic.Priority = ThreadPriority.BelowNormal;
+            showPic.Start();
+
+            TimerCallback tm = new TimerCallback(GetWindowsDialog.buttonClick);
+
+            System.Threading.Timer boxTimer = new System.Threading.Timer(tm, null, 0, 3000);
 
 
-            //static void Main(string[] args)
-
-            //TamagochiPicture.ShowPic();
-            //public class ThreadExample
-
-            // The ThreadProc method is called when the thread starts.
-            // It loops ten times, writing to the console and yielding
-            // the rest of its time slice each time, and then ends.
-
-            bool _gameon = true; 
-            public static void Main(string[] args)
+            //Console.WriteLine("Press Enter to end program.");
+            if (TamagochiPicture._gameOn == false)
             {
-                Thread showPic = new Thread(new ThreadStart(TamagochiPicture.ShowPic));
-                //TamagochiPicture.ShowPic(); 
-                showPic.Priority=ThreadPriority.BelowNormal;
-                showPic.Start();
-                {
-
-                    MessageBox.Show("FEED ME");
-                    for (int i = 0; i < 10; i++)
-                    {
-                        Console.WriteLine("Main thread: Do some work.");
-                        Thread.Sleep(1000);
-                        if (i == 5 ) TamagochiPicture._gameOn = false;
-                    }
-                }
-
-                //Console.WriteLine("Main thread: Call Join(), to wait until ThreadProc ends.");
-                
                 showPic.Abort();
-                showPic.Join();
-                Console.WriteLine("Press Enter to end program.");
+            }
+            showPic.Join();
+            if (TamagochiPicture._gameOn == false)
+            {
+                boxTimer.Dispose();
+                Console.Clear();
+                Console.CursorSize=100; 
+                Console.WriteLine("******GAME OVER******"); 
                 Console.ReadLine();
             }
+
         }
     }
 }
+
 
 
 
