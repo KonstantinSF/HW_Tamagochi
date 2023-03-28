@@ -53,7 +53,7 @@ namespace HW_Tamagochi
                     WriteLine("\t|   \\_/ |");
                     WriteLine("\t|_______|");
                 }
-                System.Threading.Thread.Sleep(800);
+                System.Threading.Thread.Sleep(600);
                 //Console.Clear();
             }
         }

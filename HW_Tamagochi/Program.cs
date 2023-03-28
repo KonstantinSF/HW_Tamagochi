@@ -9,20 +9,7 @@ namespace HW_Tamagochi
 {
     internal class Program
     {
-
-
-        //static void Main(string[] args)
-
-        //TamagochiPicture.ShowPic();
-        //public class ThreadExample
-
-        // The ThreadProc method is called when the thread starts.
-        // It loops ten times, writing to the console and yielding
-        // the rest of its time slice each time, and then ends.
-
         bool _gameon = true;
-
-        
         public static void Main(string[] args)
         {
             Thread showPic = new Thread(new ThreadStart(TamagochiPicture.ShowPic));
@@ -30,8 +17,8 @@ namespace HW_Tamagochi
             showPic.Start();
 
             TimerCallback tm = new TimerCallback(GetWindowsDialog.buttonClick);
-
-            System.Threading.Timer boxTimer = new System.Threading.Timer(tm, null, 0, 3000);
+            Thread.Sleep(3000);
+            System.Threading.Timer boxTimer = new System.Threading.Timer(tm, null, 0, 2500);
 
 
             //Console.WriteLine("Press Enter to end program.");
@@ -40,6 +27,7 @@ namespace HW_Tamagochi
                 showPic.Abort();
             }
             showPic.Join();
+                Thread.Sleep(1800);
             if (TamagochiPicture._gameOn == false)
             {
                 boxTimer.Dispose();
@@ -52,6 +40,12 @@ namespace HW_Tamagochi
         }
     }
 }
+//-specific requirements
+//-timer for scores
+//-start game
+//-winBox against pic
+//-list of requests read/write
+//-resultTab
 
 
 
