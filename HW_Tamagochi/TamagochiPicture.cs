@@ -12,17 +12,17 @@ namespace HW_Tamagochi
 {
     public class TamagochiPicture
     {
-        public static bool _gameOn=true; 
+        public static bool gaming=true; 
         public static void ShowPicTimer(Object source, ElapsedEventArgs e)
         {
-            if (_gameOn) _gameOn=false;
+            if (gaming) gaming=false;
         }
         public static void ShowPic()
         {
         
             Console.SetWindowSize(54, 17);
             bool eyeMove = true;
-            while (_gameOn==true)
+            while (gaming==true)
             {
                 if (eyeMove)
                 {

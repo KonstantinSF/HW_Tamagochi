@@ -48,10 +48,7 @@ namespace HW_Tamagochi
         }
         public static void buttonClick(Object source, ElapsedEventArgs e)
         {
-            if (countRequires%Requires.Count() == 0) 
-            { 
-                UniqueSeq = UniqueSequence(); 
-            }
+            if (countRequires%Requires.Count() == 0) UniqueSeq = UniqueSequence(); 
             if (_mastakes%3 == 0&& _mastakes!=0) 
             { 
             Program.Boxtimer.Stop();

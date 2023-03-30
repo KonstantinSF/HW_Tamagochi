@@ -32,15 +32,15 @@ namespace HW_Tamagochi
             Thread showPic = new Thread(new ThreadStart(TamagochiPicture.ShowPic));
             showPic.Priority = ThreadPriority.BelowNormal;
             showPic.Start();
-            SetTimerBox();
             SetTimerShowPic();
-            if (TamagochiPicture._gameOn == false)
+            SetTimerBox();
+            if (TamagochiPicture.gaming == false)
             {
                 showPic.Abort();
             }
             showPic.Join();
-            Thread.Sleep(1500);
-            if (TamagochiPicture._gameOn == false)
+            Thread.Sleep(1200);
+            if (TamagochiPicture.gaming == false)
             {
                 ShowPictimer.Stop();
                 ShowPictimer.Dispose();
@@ -56,11 +56,13 @@ namespace HW_Tamagochi
 }
 //-cure after 3 times not respond+
 //-living for 2 minutes+; 
+//-unique requests from array+; 
 //-timer for scores
-//-start game
 //-winBox against pic
-//-list of requests read/write
+//-start game
+//-list of requests read/write to file
 //-resultTab
+//-XLM file
 
 
 
