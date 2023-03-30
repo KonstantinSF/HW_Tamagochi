@@ -5,13 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
-using static System.Console; 
+using static System.Console;
+using System.Timers;
 
 namespace HW_Tamagochi
 {
     public class TamagochiPicture
     {
         public static bool _gameOn=true; 
+        public static void ShowPicTimer(Object source, ElapsedEventArgs e)
+        {
+            if (_gameOn) _gameOn=false;
+        }
         public static void ShowPic()
         {
         
