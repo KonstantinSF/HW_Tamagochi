@@ -27,7 +27,7 @@ namespace HW_Tamagochi
                     GetWindowsDialog._mistakes = 0; 
                     _startCure = false;
                     Thread.Sleep(600);
-                    Program.Boxtimer.Start();
+                    StartStop.messageBoxtimer.Start();
                     TamagochiPicture.curePic = false; 
                 }
                 else

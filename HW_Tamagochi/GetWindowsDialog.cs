@@ -48,7 +48,7 @@ namespace HW_Tamagochi
             if (countRequires%Requires.Count() == 0) UniqueSeq = UniqueSequence(); 
             if (_mistakes==3) 
             { 
-            Program.Boxtimer.Stop();
+            StartStop.messageBoxtimer.Stop();
             Cure.CureMe(true);
             }
             countRequires++;
