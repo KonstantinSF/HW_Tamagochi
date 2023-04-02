@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StartStop.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="Cure.cs" />
     <Compile Include="GetWinForm.cs" />
     <Compile Include="TamagochiPicture.cs" />

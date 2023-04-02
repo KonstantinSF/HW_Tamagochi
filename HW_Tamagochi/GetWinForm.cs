@@ -13,7 +13,7 @@ namespace HW_Tamagochi
 
     public class GetWindowsDialog
     {
-        public static int _mastakes { get; set; }
+        public static uint _mastakes { get; set; }
         public static bool resultDialog { get; set; }
         public static int countRequires; 
 
