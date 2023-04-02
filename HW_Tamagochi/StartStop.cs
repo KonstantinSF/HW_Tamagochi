@@ -48,18 +48,17 @@ namespace HW_Tamagochi
                     ShowPictimer.Dispose();
                     messageBoxtimer.Stop();
                     messageBoxtimer.Dispose();
-                    Console.Clear();
-                    Console.CursorSize = 100;
-                    Console.WriteLine("******GAME OVER******");
+                    //Console.Clear();
                 }
             }
             else Stop(); 
         }
-        public static bool Stop()
+        public static void Stop()
         {
             _startGame = false;
+            Clear();
             WriteLine($"The game result is {TamagochiPicture.score}");
-            return _stopGame = true;
+            //return _stopGame = true;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace HW_Tamagochi
         
         public static void Main(string[] args)
         {
+            Screen1.ScreenLogo(); 
             StartStop.Start(true);    
         }
     }
