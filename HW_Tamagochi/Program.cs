@@ -29,6 +29,7 @@ namespace HW_Tamagochi
 
         public static void Main(string[] args)
         {
+            int pos = Console.WindowLeft+40; 
             Thread showPic = new Thread(new ThreadStart(TamagochiPicture.ShowPic));
             showPic.Priority = ThreadPriority.BelowNormal;
             showPic.Start();
