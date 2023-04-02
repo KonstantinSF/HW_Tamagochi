@@ -10,14 +10,11 @@ using static System.Console;
 
 namespace HW_Tamagochi
 {
-
     public class GetWindowsDialog
     {
-        public static uint _mastakes { get; set; }
+        public static int _mistakes { get; set; }
         public static bool resultDialog { get; set; }
         public static int countRequires; 
-
-        //private static System.Threading.Timer boxTimer;
         public static string[] Requires =
         {
         "Feed me!!!",
@@ -49,16 +46,16 @@ namespace HW_Tamagochi
         public static void buttonClick(Object source, ElapsedEventArgs e)
         {
             if (countRequires%Requires.Count() == 0) UniqueSeq = UniqueSequence(); 
-            if (_mastakes%3 == 0&& _mastakes!=0) 
+            if (_mistakes==3) 
             { 
             Program.Boxtimer.Stop();
             Cure.CureMe(true);
             }
             countRequires++;
-            _mastakes++; 
+            _mistakes++; 
             DialogResult result;
             result = MessageBox.Show(Requires[UniqueSeq[(countRequires-1)%Requires.Count()]]);
-            if (result == DialogResult.OK) _mastakes--;
+            if (result == DialogResult.OK&& _mistakes>0) _mistakes--;
         }
     }
 }

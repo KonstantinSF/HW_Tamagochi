@@ -16,7 +16,6 @@ namespace HW_Tamagochi
         {
             if (_startCure)
             {
-                // GetWindowsDialog._mastakes = 0; 
                 TamagochiPicture.curePic = true; 
                 DialogResult result = MessageBox.Show (
                 "I'm ill, please cure me!!!", 
@@ -25,6 +24,7 @@ namespace HW_Tamagochi
                 MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
+                    GetWindowsDialog._mistakes = 0; 
                     _startCure = false;
                     Thread.Sleep(600);
                     Program.Boxtimer.Start();

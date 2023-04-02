@@ -60,9 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="StartStop.cs" />
-    <Compile Include="Score.cs" />
     <Compile Include="Cure.cs" />
-    <Compile Include="GetWinForm.cs" />
+    <Compile Include="GetWindowsDialog.cs" />
     <Compile Include="TamagochiPicture.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

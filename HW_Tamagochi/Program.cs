@@ -57,7 +57,7 @@ namespace HW_Tamagochi
 //-cure after 3 times not respond+
 //-living for 2 minutes+; 
 //-unique requests from array+; 
-//-timer for scores
+//-timer for scores+
 //-winBox against pic
 //-start game
 //-list of requests read/write to file

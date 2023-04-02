@@ -21,9 +21,10 @@ namespace HW_Tamagochi
         }
         public static bool Stop()
         {
+            _startGame=false;
             ReadKey();
             //TamagochiPicture.gaming = false;
-            WriteLine($"The game result is {Score._score}"); 
+            WriteLine($"The game result is {TamagochiPicture.score}"); 
             return _stopGame = true;
         }
     }
