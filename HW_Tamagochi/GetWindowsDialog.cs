@@ -15,20 +15,10 @@ namespace HW_Tamagochi
         public static int _mistakes { get; set; }
         public static bool resultDialog { get; set; }
         public static int countRequires; 
-        public static string[] Requires =
-        {
-        "Feed me!!!",
-        "Calm me down!!!",
-        "Lull me!!!",
-        "Scratch my back!!!",
-        "Play with me!!!",
-        "Let's walking!!!",
-        "Warm me!!!"
-        };
         public static int[] UniqueSeq {  get; set; }
         public static int[] UniqueSequence()
         {
-            int Count = Requires.Count(); 
+            int Count = RequestAll.Request.Count(); 
             int [] sequence = new int[Count];
             for (int i = 0; i < Count; ++i) 
             {
@@ -45,7 +35,7 @@ namespace HW_Tamagochi
         }
         public static void buttonClick(Object source, ElapsedEventArgs e)
         {
-            if (countRequires%Requires.Count() == 0) UniqueSeq = UniqueSequence(); 
+            if (countRequires% RequestAll.Request.Count() == 0) UniqueSeq = UniqueSequence(); 
             if (_mistakes==3) 
             { 
             StartStop.messageBoxtimer.Stop();
@@ -54,7 +44,7 @@ namespace HW_Tamagochi
             countRequires++;
             _mistakes++; 
             DialogResult result;
-            result = MessageBox.Show(Requires[UniqueSeq[(countRequires-1)%Requires.Count()]]);
+            result = MessageBox.Show(RequestAll.Request[UniqueSeq[(countRequires-1)%RequestAll.Request.Count()]]);
             if (result == DialogResult.OK&& _mistakes>0) _mistakes--;
         }
     }

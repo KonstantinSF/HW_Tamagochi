@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="List Requests.cs" />
     <Compile Include="Screen1.cs" />
     <Compile Include="StartStop.cs" />
     <Compile Include="Cure.cs" />

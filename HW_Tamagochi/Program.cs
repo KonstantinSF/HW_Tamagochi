@@ -12,8 +12,10 @@ namespace HW_Tamagochi
         
         public static void Main(string[] args)
         {
-            Screen1.ScreenLogo(); 
-            StartStop.Start(true);    
+            RequestAll.RequestRead(); 
+            Screen1.ScreenLogo();
+            StartStop.Start(true);
+            
         }
     }
 }
@@ -22,8 +24,8 @@ namespace HW_Tamagochi
 //-unique requests from array+; 
 //-timer for scores+
 //-winBox against pic+
-//-start game
-//-list of requests read/write to file
+//-start game+
+//-list of requests read from file
 //-resultTab
 //-XLM file
 
