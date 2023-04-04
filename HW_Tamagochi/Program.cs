@@ -15,7 +15,6 @@ namespace HW_Tamagochi
             RequestAll.RequestRead(); 
             Screen1.ScreenLogo();
             StartStop.Start(true);
-            
         }
     }
 }
@@ -25,7 +24,7 @@ namespace HW_Tamagochi
 //-timer for scores+
 //-winBox against pic+
 //-start game+
-//-list of requests read from file
+//-list of requests read from file+
 //-resultTab
 //-XLM file
 
