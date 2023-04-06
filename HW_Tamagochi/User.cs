@@ -20,7 +20,7 @@ namespace HW_Tamagochi
 
         public override string ToString()
         {
-            return $"{this._name}\t\t\t{this._time.ToShortDateString()}\t\t{this._score}";
+            return $"{this._name}\t\t\t{this._time.ToLongDateString()}\t\t{this._score}";
         }
         public void RatingTableWrite()
         {

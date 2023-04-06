@@ -43,7 +43,7 @@ namespace HW_Tamagochi
                     showPic.Abort();
                 }
                 showPic.Join();
-                Thread.Sleep(1200);
+                Thread.Sleep(600);
                 if (TamagochiPicture.gaming == false)
                 {
                 
@@ -62,7 +62,7 @@ namespace HW_Tamagochi
             string score = string.Format("{0:00}, {1:00}", ts.Minutes, ts.Seconds);
             score = score.Replace(", ", "");
             User user1 = new User();
-            WriteLine("Enter your name: ");
+            WriteLine($"***********GAME OVER*********\nYour score is : {score}\nPlease Enter your name: ");
             user1._name = ReadLine();
             user1._score = score;
             user1.RatingTableWrite(); 
