@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using System.Diagnostics;
 using System.Threading;
 using static System.Console;
 
@@ -7,6 +9,7 @@ namespace HW_Tamagochi
 
     internal class StartStop
     {
+        public static string score;
         public static void SetTimerMessageBox()
         {
             messageBoxtimer = new System.Timers.Timer(2500);
@@ -21,9 +24,9 @@ namespace HW_Tamagochi
             ShowPictimer.AutoReset = false;
             ShowPictimer.Enabled = true;
         }
-        bool _gameon = true;
         public static System.Timers.Timer messageBoxtimer;
         public static System.Timers.Timer ShowPictimer;
+        public static Stopwatch scoreCount = new Stopwatch();
         public static bool _startGame { get; set; }
         public static bool _stopGame { get; set; }
 
@@ -36,29 +39,44 @@ namespace HW_Tamagochi
                 showPic.Start();
                 SetTimerShowPic();
                 SetTimerMessageBox();
+                scoreCount.Start();
                 if (TamagochiPicture.gaming == false)
                 {
                     showPic.Abort();
                 }
                 showPic.Join();
-                Thread.Sleep(1200);
+                //Thread.Sleep(5000);
                 if (TamagochiPicture.gaming == false)
                 {
                     ShowPictimer.Stop();
                     ShowPictimer.Dispose();
                     messageBoxtimer.Stop();
                     messageBoxtimer.Dispose();
-                    //Console.Clear();
+                    Console.Clear();
+                    Stop(); 
                 }
             }
-            else Stop(); 
+            
         }
         public static void Stop()
         {
-            _startGame = false;
-            Clear();
-            WriteLine($"The game result is {TamagochiPicture.score}");
+            //_startGame = false;
+            StartStop.scoreCount.Stop();
+            TimeSpan ts = StartStop.scoreCount.Elapsed;
+            string score = string.Format("{0:00}, {1:00}", ts.Minutes, ts.Seconds);
+            score = score.Replace(", ", "");
+            User user1 = new User();
+            WriteLine("Enter your name: ");
+            user1._name = ReadLine();
+            user1._score = score;
+            WriteLine(user1.ToString());
+
+            //Clear();
+            //WriteLine($"The game result is {StartStop.score}");
+
+
             //return _stopGame = true;
         }
     }
 }
+

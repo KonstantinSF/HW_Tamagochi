@@ -33,7 +33,6 @@ namespace HW_Tamagochi
                 else
                 {
                     TamagochiPicture.gaming = false;
-                    StartStop.Stop(); 
                 }
             }
         }

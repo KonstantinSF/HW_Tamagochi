@@ -14,7 +14,7 @@ namespace HW_Tamagochi
     public class TamagochiPicture
     {
         public static bool gaming=true;
-        public static string score;
+        
         public static bool curePic; 
         public static void ShowPicTimer(Object source, ElapsedEventArgs e)
         {
@@ -24,8 +24,7 @@ namespace HW_Tamagochi
         {
             Console.SetWindowSize(54, 17);
             bool eyeMove = true;
-            Stopwatch scoreCount = new Stopwatch();
-            if (gaming) scoreCount.Start();
+            
             while (gaming==true)
             {
                 if (eyeMove)
@@ -46,11 +45,11 @@ namespace HW_Tamagochi
                     WriteLine("\t|_______|");
                     if (curePic == true)
                     {
-                        eyeMove = true; scoreCount.Stop(); 
+                        eyeMove = true; StartStop.scoreCount.Stop(); 
                     }
                     else
                     {
-                        eyeMove = false;scoreCount.Start(); 
+                        eyeMove = false;StartStop.scoreCount.Start(); 
                     }
 
                 }
@@ -74,11 +73,8 @@ namespace HW_Tamagochi
                 }
                 System.Threading.Thread.Sleep(600);
             }
-            if (!gaming)scoreCount.Stop();
-            TimeSpan ts = scoreCount.Elapsed;
-            string score = string.Format("{0:00}, {1:00}", ts.Minutes, ts.Seconds);
-            score = score.Replace(", ", ""); 
-            WriteLine(score); 
+             
+            //WriteLine(score); 
         }
     }
 }
