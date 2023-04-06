@@ -36,7 +36,7 @@ namespace HW_Tamagochi
         public static void buttonClick(Object source, ElapsedEventArgs e)
         {
             if (countRequires% RequestAll.Request.Count() == 0) UniqueSeq = UniqueSequence(); 
-            if (_mistakes==1) 
+            if (_mistakes==3) 
             { 
             StartStop.messageBoxtimer.Stop();
             Cure.CureMe(true);
