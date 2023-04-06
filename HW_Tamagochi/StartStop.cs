@@ -30,10 +30,8 @@ namespace HW_Tamagochi
         public static bool _startGame { get; set; }
         public static bool _stopGame { get; set; }
 
-        public static void Start(bool _startGame)
+        public static void Start()
         {
-            if (_startGame)
-            {
                 Thread showPic = new Thread(new ThreadStart(TamagochiPicture.ShowPic));
                 showPic.Priority = ThreadPriority.BelowNormal;
                 showPic.Start();
@@ -45,22 +43,20 @@ namespace HW_Tamagochi
                     showPic.Abort();
                 }
                 showPic.Join();
-                //Thread.Sleep(5000);
+                Thread.Sleep(1200);
                 if (TamagochiPicture.gaming == false)
                 {
+                
                     ShowPictimer.Stop();
                     ShowPictimer.Dispose();
-                    messageBoxtimer.Stop();
-                    messageBoxtimer.Dispose();
                     Console.Clear();
                     Stop(); 
                 }
-            }
-            
         }
         public static void Stop()
         {
             //_startGame = false;
+            
             StartStop.scoreCount.Stop();
             TimeSpan ts = StartStop.scoreCount.Elapsed;
             string score = string.Format("{0:00}, {1:00}", ts.Minutes, ts.Seconds);
@@ -69,13 +65,7 @@ namespace HW_Tamagochi
             WriteLine("Enter your name: ");
             user1._name = ReadLine();
             user1._score = score;
-            WriteLine(user1.ToString());
-
-            //Clear();
-            //WriteLine($"The game result is {StartStop.score}");
-
-
-            //return _stopGame = true;
+            user1.RatingTableWrite(); 
         }
     }
 }

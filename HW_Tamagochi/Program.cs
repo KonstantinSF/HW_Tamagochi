@@ -14,9 +14,7 @@ namespace HW_Tamagochi
         {
             RequestAll.RequestRead(); 
             Screen1.ScreenLogo();
-            StartStop.Start(true);
-            //StartStop.Stop();
-            //Thread.Sleep(5000);
+            StartStop.Start();
 
         }
     }

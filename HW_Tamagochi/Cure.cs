@@ -16,7 +16,7 @@ namespace HW_Tamagochi
         {
             if (_startCure)
             {
-                TamagochiPicture.curePic = true; 
+                TamagochiPicture.curePic = true;
                 DialogResult result = MessageBox.Show (
                 "I'm ill, please cure me!!!", 
                 "Cure cure cure cure + red ALERT!!!", 
@@ -32,6 +32,8 @@ namespace HW_Tamagochi
                 }
                 else
                 {
+                    StartStop.messageBoxtimer.Stop();
+                    StartStop.messageBoxtimer.Dispose();
                     TamagochiPicture.gaming = false;
                 }
             }
